@@ -233,7 +233,3 @@ env:
   TWITTER_CONSUMER_SECRET: ''
   TWITTER_ENVIRONMENT: ''
   USE_INBOX_AVATAR_FOR_BOT: true
-
-istio:
-  enabled: false
-  version: '1.23.0'
