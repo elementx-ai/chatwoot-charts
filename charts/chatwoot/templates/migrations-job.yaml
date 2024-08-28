@@ -57,6 +57,19 @@ spec:
           - -d
           - 15090,15021,15020
           - --log_output_level=default:info
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_RAW
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsGroup: 0
+          runAsNonRoot: false
+          runAsUser: 0
       {{- end }}
       - name: init-postgres
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
