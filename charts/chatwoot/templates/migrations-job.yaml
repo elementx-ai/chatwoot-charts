@@ -35,7 +35,7 @@ spec:
       {{- end }}
       initContainers:
       {{- if .Values.istio.enabled }}
-      - name: istio-init
+      - name: init-istio
         image: "docker.io/istio/proxyv2:{{ .Values.istio.version }}"
         imagePullPolicy: IfNotPresent
         args:
