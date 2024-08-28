@@ -16,6 +16,7 @@ metadata:
 spec:
   completions: 1
   completionMode: "NonIndexed"
+  activeDeadlineSeconds: 1800
   template:
     {{- with .Values.hooks.migrate.podAnnotations }}
     metadata:
