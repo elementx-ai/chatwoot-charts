@@ -15,7 +15,16 @@ metadata:
     "helm.sh/hook-weight": "-1"
 spec:
   template:
+    {{- with .Values.hooks.migrate.podAnnotations }}
+    metadata:
+      annotations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       restartPolicy: Never
       {{- with .Values.tolerations }}
       tolerations:

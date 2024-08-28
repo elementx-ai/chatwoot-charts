@@ -5,7 +5,7 @@ This repository contains helm charts for [Chatwoot](https://github.com/chatwoot/
 
 ## Installation
 ```bash
-helm repo add chatwoot https://chatwoot.github.io/charts
+helm repo add chatwoot https://elementx-ai.github.io/chatwoot-charts
 helm install chatwoot chatwoot/chatwoot
 ```
 

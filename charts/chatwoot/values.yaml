@@ -14,14 +14,15 @@ autoscaling:
 
 web:
   hpa:
-     # set this to true to enable horizontal pod autoscaling
-     # uncomment values.resources section if hpa is enabled
+    # set this to true to enable horizontal pod autoscaling
+    # uncomment values.resources section if hpa is enabled
     enabled: false
     cputhreshold: 75
     minpods: 1
     maxpods: 10
   replicaCount: 1
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -41,7 +42,8 @@ worker:
     minpods: 2
     maxpods: 10
   replicaCount: 2
-  resources: {}
+  resources:
+    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -58,15 +60,16 @@ services:
   internalPort: 3000
   targetPort: 3000
   type: LoadBalancer
-  annotations: {}
+  annotations:
+    {}
     # For example
     #  service.beta.kubernetes.io/aws-load-balancer-type: external
     #  service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
     #  service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: ''
+fullnameOverride: ''
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -75,14 +78,16 @@ serviceAccount:
   annotations: {}
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: ""
+  name: ''
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -99,11 +104,12 @@ ingress:
   # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   # ingressClassName: nginx
-  annotations: {}
+  annotations:
+    {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: ""
+    - host: ''
       paths:
         - path: /
           pathType: Prefix
@@ -172,57 +178,58 @@ hooks:
         memory: 1000Mi
     # Defaults to performing the DB migration job after the install/upgrade.
     # Can be overridden to "pre-install,pre-upgrade" with caution to perform migrations that are sometimes required for the deployment to become healthy
-    hookAnnotation: "post-install,post-upgrade"
+    hookAnnotation: 'post-install,post-upgrade'
+    podAnnotations: {}
 
 # ENVIRONMENT VARIABLES
 
 # If set, will apply environment variables found in this secret, after the variables defined in the env key.
-existingEnvSecret: ""
+existingEnvSecret: ''
 
 env:
   ACTIVE_STORAGE_SERVICE: local
   ANDROID_BUNDLE_ID: com.chatwoot.app
-  ANDROID_SHA256_CERT_FINGERPRINT: "AC:73:8E:DE:EB:56:EA:CC:10:87:02:A7:65:37:7B:38:D4:5D:D4:53:F8:3B:FB:D3:C6:28:64:1D:AA:08:1E:D8"
-  ASSET_CDN_HOST: ""
-  AWS_ACCESS_KEY_ID: ""
-  AWS_REGION: ""
-  AWS_SECRET_ACCESS_KEY: ""
+  ANDROID_SHA256_CERT_FINGERPRINT: 'AC:73:8E:DE:EB:56:EA:CC:10:87:02:A7:65:37:7B:38:D4:5D:D4:53:F8:3B:FB:D3:C6:28:64:1D:AA:08:1E:D8'
+  ASSET_CDN_HOST: ''
+  AWS_ACCESS_KEY_ID: ''
+  AWS_REGION: ''
+  AWS_SECRET_ACCESS_KEY: ''
   ENABLE_ACCOUNT_SIGNUP: false
-  FB_APP_ID: ""
-  FB_APP_SECRET: ""
-  FB_VERIFY_TOKEN: ""
+  FB_APP_ID: ''
+  FB_APP_SECRET: ''
+  FB_VERIFY_TOKEN: ''
   FORCE_SSL: false
-  FRONTEND_URL: "http://0.0.0.0:3000"
+  FRONTEND_URL: 'http://0.0.0.0:3000'
   INSTALLATION_ENV: helm
   IOS_APP_ID: 6C953F3RX2.com.chatwoot.app
   LOG_LEVEL: info
   LOG_SIZE: 500
-  MAILER_INBOUND_EMAIL_DOMAIN: ""
-  MAILER_SENDER_EMAIL: ""
-  MAILGUN_INGRESS_SIGNING_KEY: ""
-  MANDRILL_INGRESS_API_KEY: ""
+  MAILER_INBOUND_EMAIL_DOMAIN: ''
+  MAILER_SENDER_EMAIL: ''
+  MAILGUN_INGRESS_SIGNING_KEY: ''
+  MANDRILL_INGRESS_API_KEY: ''
   RAILS_ENV: production
-  RAILS_INBOUND_EMAIL_PASSWORD: ""
-  RAILS_INBOUND_EMAIL_SERVICE: ""
+  RAILS_INBOUND_EMAIL_PASSWORD: ''
+  RAILS_INBOUND_EMAIL_SERVICE: ''
   RAILS_LOG_TO_STDOUT: true
   RAILS_MAX_THREADS: 5
-  REDIS_SENTINEL_MASTER_NAME: ""
-  REDIS_SENTINELS: ""
+  REDIS_SENTINEL_MASTER_NAME: ''
+  REDIS_SENTINELS: ''
   REDIS_TLS: false
-  S3_BUCKET_NAME: ""
+  S3_BUCKET_NAME: ''
   SECRET_KEY_BASE: replace_with_your_super_duper_secret_key_base
-  SENTRY_DSN: ""
-  SLACK_CLIENT_ID: ""
-  SLACK_CLIENT_SECRET: ""
-  SMTP_ADDRESS: ""
+  SENTRY_DSN: ''
+  SLACK_CLIENT_ID: ''
+  SLACK_CLIENT_SECRET: ''
+  SMTP_ADDRESS: ''
   SMTP_AUTHENTICATION: plain
   SMTP_ENABLE_STARTTLS_AUTO: true
   SMTP_OPENSSL_VERIFY_MODE: none
-  SMTP_PASSWORD: ""
+  SMTP_PASSWORD: ''
   SMTP_PORT: 587
-  SMTP_USERNAME: ""
-  TWITTER_APP_ID: ""
-  TWITTER_CONSUMER_KEY: ""
-  TWITTER_CONSUMER_SECRET: ""
-  TWITTER_ENVIRONMENT: ""
+  SMTP_USERNAME: ''
+  TWITTER_APP_ID: ''
+  TWITTER_CONSUMER_KEY: ''
+  TWITTER_CONSUMER_SECRET: ''
+  TWITTER_ENVIRONMENT: ''
   USE_INBOX_AVATAR_FOR_BOT: true
