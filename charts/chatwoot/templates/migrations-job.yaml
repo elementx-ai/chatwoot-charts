@@ -34,6 +34,30 @@ spec:
       nodeSelector: {{- include "common.tplvalues.render" (dict "value" .Values.nodeSelector "context" $) | nindent 8 }}
       {{- end }}
       initContainers:
+        {{- if .Value.includeIstio }}
+        - name: istio-init
+          image: docker.io/istio/proxyv2:1.23.0
+          imagePullPolicy: IfNotPresent
+          args:
+            - istio-iptables
+            - -p
+            - "15001"
+            - -z
+            - "15006"
+            - -u
+            - "1337"
+            - -m
+            - REDIRECT
+            - -i
+            - '*'
+            - -x
+            - ""
+            - -b
+            - '*'
+            - -d
+            - 15090,15021,15020
+            - --log_output_level=default:info
+        {{- end }}
       - name: init-postgres
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}

@@ -233,3 +233,5 @@ env:
   TWITTER_CONSUMER_SECRET: ''
   TWITTER_ENVIRONMENT: ''
   USE_INBOX_AVATAR_FOR_BOT: true
+
+includeIstio: false
