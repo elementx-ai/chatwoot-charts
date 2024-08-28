@@ -34,7 +34,7 @@ spec:
       nodeSelector: {{- include "common.tplvalues.render" (dict "value" .Values.nodeSelector "context" $) | nindent 8 }}
       {{- end }}
       initContainers:
-        {{- if .Value.includeIstio }}
+        {{- if .Values.includeIstio }}
         - name: istio-init
           image: docker.io/istio/proxyv2:1.23.0
           imagePullPolicy: IfNotPresent
