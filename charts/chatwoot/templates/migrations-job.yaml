@@ -15,7 +15,7 @@ metadata:
     "helm.sh/hook-weight": "-1"
 spec:
   completions: 1
-  completionMode: Indexed
+  completionMode: "NonIndexed"
   template:
     {{- with .Values.hooks.migrate.podAnnotations }}
     metadata:
