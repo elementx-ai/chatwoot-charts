@@ -21,6 +21,7 @@ web:
     minpods: 1
     maxpods: 10
   replicaCount: 1
+  podAnnotations: {}
   resources:
     {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -42,6 +43,7 @@ worker:
     minpods: 2
     maxpods: 10
   replicaCount: 2
+  podAnnotations: {}
   resources:
     {}
     # We usually recommend not to specify default resources and to leave this as a conscious
