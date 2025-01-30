@@ -93,6 +93,12 @@ spec:
               port: {{ int .Values.services.internalPort }}
             initialDelaySeconds: 5
             periodSeconds: 10
+          startupProbe:
+            httpGet:
+              path: /
+              port: {{ int .Values.services.internalPort }}
+            failureThreshold: 30
+            periodSeconds: 10
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- with .Values.web.resources }}
           resources:
