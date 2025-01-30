@@ -81,6 +81,18 @@ spec:
           name: {{ .Chart.Name }}-web
           ports:
             - containerPort: {{ int .Values.services.internalPort }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ int .Values.services.internalPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ int .Values.services.internalPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 10
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- with .Values.web.resources }}
           resources:
