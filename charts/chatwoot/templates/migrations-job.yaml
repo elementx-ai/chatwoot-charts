@@ -38,11 +38,22 @@ spec:
       containers:
       - name: "db-migrate-job"
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: ["/bin/sh", "-c"]
         args:
-        - bundle
-        - exec
-        - rails
-        - db:chatwoot_prepare
+        - |
+          # Run the database migration
+          bundle exec rails db:chatwoot_prepare
+
+          # Check if the migration was successful
+          if [ $? -eq 0 ]; then
+            echo "Migration completed successfully, shutting down Istio sidecar"
+            wget -q --post-data='' http://localhost:15000/quitquitquit -O /dev/null || echo "Failed to shut down Istio sidecar"
+            echo "Job completed"
+          else
+            echo "Migration failed"
+            exit 1
+          fi
+          exit 0
         env:
         {{- if .Values.postgresql.auth.existingSecret }}
         - name: POSTGRES_PASSWORD
