@@ -81,7 +81,7 @@ spec:
             - secretRef:
                 name: {{ .Values.existingEnvSecret }}
           {{- end }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: {{ include  "chatwoot.image" . }}
           name: {{ .Chart.Name }}-web
           ports:
             - containerPort: {{ int .Values.services.internalPort }}

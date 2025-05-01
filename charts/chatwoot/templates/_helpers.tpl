@@ -31,6 +31,19 @@ Create chart name and version as used by the chart label.
 {{- end }}
 
 {{/*
+Version
+*/}}
+{{- define "chatwoot.image" -}}
+{{- if .Values.image.tag }}
+{{- printf "%s:%s" .Values.image.repository .Values.image.tag }}
+{{- else if .Chart.AppVersion }}
+{{- printf "%s:%s" .Values.image.repository .Chart.AppVersion }}
+{{- else }}
+{{- printf "" }}
+{{- end }}
+{{- end }}
+
+{{/*
 Common labels
 */}}
 {{- define "chatwoot.labels" -}}

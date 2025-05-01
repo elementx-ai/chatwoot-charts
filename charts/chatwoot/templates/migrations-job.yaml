@@ -38,7 +38,7 @@ spec:
       {{- end }}
       containers:
       - name: "db-migrate-job"
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: {{ include  "chatwoot.image" . }}
         command: ["/bin/sh", "-c"]
         args:
         - |

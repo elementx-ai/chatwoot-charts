@@ -72,7 +72,7 @@ spec:
             - secretRef:
                 name: {{ .Values.existingEnvSecret }}
           {{- end }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: {{ include  "chatwoot.image" . }}
           name: {{ .Chart.Name }}-workers
           {{- with .Values.worker.resources }}
           resources:
