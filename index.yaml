@@ -78,6 +78,44 @@ entries:
     - https://github.com/elementx-ai/chatwoot-charts/releases/download/chatwoot-4.16.12/chatwoot-4.16.12.tgz
     version: 4.16.12
   - apiVersion: v2
+    appVersion: 4.18.3
+    created: "2025-05-19T06:10:54.45315279Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.7
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.12.2
+    description: "Open-source customer engagement suite, an alternative to Intercom,
+      Zendesk, Salesforce Service Cloud etc. \U0001F525\U0001F4AC"
+    digest: bfb8f97c59302dce117b3be39f61066f24f0083a03e6551d894a3f3127f4fba3
+    home: https://github.com/chatwoot/charts
+    icon: https://chatwoot-public-assets.s3.amazonaws.com/logo/square.png
+    keywords:
+    - chatwoot
+    - open source
+    - customer support
+    - chat
+    - ruby
+    - rails
+    - crm
+    maintainers:
+    - email: vishnu@chatwoot.com
+      name: vishnu-narayanan
+    - email: sojan@chatwoot.com
+      name: sojan-official
+    name: chatwoot
+    sources:
+    - https://github.com/chatwoot/chatwoot
+    - http://www.chatwoot.com
+    type: application
+    urls:
+    - https://github.com/elementx-ai/chatwoot-charts/releases/download/chatwoot-1.3.15/chatwoot-1.3.15.tgz
+    version: 1.3.15
+  - apiVersion: v2
     appVersion: 4.18.2
     created: "2025-05-19T05:49:38.756204027Z"
     dependencies:
@@ -1103,4 +1141,4 @@ entries:
     urls:
     - https://github.com/elementx-ai/chatwoot-charts/releases/download/chatwoot-1.1.15/chatwoot-1.1.15.tgz
     version: 1.1.15
-generated: "2025-05-19T05:49:38.75641076Z"
+generated: "2025-05-19T06:10:54.453417365Z"
