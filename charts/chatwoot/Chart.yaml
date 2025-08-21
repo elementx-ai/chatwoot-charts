@@ -32,8 +32,8 @@ sources:
 
 # This is the chart version
 # This must be incremented with each change to the chart and application version below.
-version: 1.3.43
+version: 1.3.44
 
 # This is the application version.
 # This version should be the same as the version of the application being deployed.
-appVersion: '4.24.0'
+appVersion: '4.24.1'
