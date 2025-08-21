@@ -47,9 +47,8 @@ spec:
         - args:
             - bundle
             - exec
-            - sidekiq
-            - -C
-            - config/sidekiq.yml
+            - good_job
+            - start
           env:
           {{- if .Values.postgresql.auth.existingSecret }}
           - name: POSTGRES_PASSWORD
